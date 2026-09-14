@@ -139,6 +139,38 @@
   }
   .btn.dark:hover{ background:#fff; color:var(--ink); border-color:var(--ink); }
 
+  /* ---------- HERO BUTTON ROW ---------- */
+  .hero-actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-top:40px;
+    flex-wrap:wrap;
+  }
+  .hero-actions .btn{
+    margin-top:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-width:145px;
+    padding:12px 20px;
+    border-radius:5px;
+    white-space:nowrap;
+  }
+  .hero-actions .btn svg{
+    width:15px;
+    height:15px;
+    flex:none;
+  }
+  .hero-actions .btn svg path,
+  .hero-actions .btn svg rect,
+  .hero-actions .btn svg polyline,
+  .hero-actions .btn svg line{
+    vector-effect:non-scaling-stroke;
+  }
+
   /* ---------- SECTION shell ---------- */
   section{ padding:120px 6vw; border-bottom:1px solid var(--line); scroll-margin-top:90px; }
   .eyebrow{
@@ -756,6 +788,24 @@
     .about-photo-wrap, .about-photo-wrap::before, .hero-inner .btn::after{ animation:none; }
   }
 
+  @media (max-width: 600px){
+    .hero-actions{
+      width:100%;
+      gap:9px;
+      margin-top:30px;
+    }
+    .hero-actions .btn{
+      min-width:120px;
+      padding:11px 14px;
+      font-size:.68rem;
+      letter-spacing:.12em;
+    }
+    .hero-actions .btn svg{
+      width:14px;
+      height:14px;
+    }
+  }
+
   @media (max-width: 860px){
     nav ul{ display:none; }
     .burger{ display:block; }
@@ -881,8 +931,34 @@
     <p class="role">Python Full-Stack Developer</p>
     <br>
     <p class="resume-caption"><i>Everything you need to know, in one document</i></p>
-    <a href="resume/Aryanandha_Jayakumar_Resume (1).pdf" target="_blank" rel="noopener" class="btn">Download Resume</a>
-    <a href="#projects" class="btn">My Works</a>
+    <div class="hero-actions">
+      <a href="resume/Aryanandha_Jayakumar_Resume (1).pdf" target="_blank" rel="noopener" class="btn" aria-label="Download Resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"></path>
+          <path d="M7 10l5 5 5-5"></path>
+          <path d="M5 21h14"></path>
+        </svg>
+        <span>Download</span>
+      </a>
+
+      <a href="#projects" class="btn" aria-label="View Projects">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+          <path d="M3 9h18"></path>
+          <path d="M7 13h4"></path>
+          <path d="M7 17h7"></path>
+        </svg>
+        <span>Projects</span>
+      </a>
+
+      <a href="#contact" class="btn" aria-label="Contact Me">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <path d="M3 7l9 7 9-7"></path>
+        </svg>
+        <span>Contact</span>
+      </a>
+    </div>
   </div>
 </section>
 
