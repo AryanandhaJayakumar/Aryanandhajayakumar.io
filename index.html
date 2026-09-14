@@ -581,6 +581,12 @@
     footer{ grid-template-columns:1fr; text-align:left; }
     .foot-center, .foot-right{ text-align:left; }
   }
+@media (prefers-reduced-motion: reduce){
+    .hero::before{ animation:none; }
+    .film-grain{ animation:none; opacity:.03; }
+    .reveal{ transition:opacity .4s ease; transform:none; filter:none; }
+    .about-photo-wrap, .about-photo-wrap::before, .hero-inner .btn::after{ animation:none; }
+  }
 
   @media (max-width: 860px){
     .experience-timeline{ padding-left:34px; }
