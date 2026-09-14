@@ -581,6 +581,53 @@
     footer{ grid-template-columns:1fr; text-align:left; }
     .foot-center, .foot-right{ text-align:left; }
   }
+
+  @media (max-width: 860px){
+    .experience-timeline{ padding-left:34px; }
+    .experience-timeline::before,
+    .experience-progress{
+      left:12px;
+      transform:none;
+    }
+    .experience-item{
+      display:block;
+      min-height:0;
+      margin-bottom:28px;
+    }
+    .experience-item:nth-child(odd) .experience-content,
+    .experience-item:nth-child(even) .experience-content{
+      transform:translateX(25px);
+      text-align:left;
+    }
+    .experience-item.in-view .experience-content{ transform:translateX(0); }
+    .experience-item:nth-child(odd) .experience-content::before,
+    .experience-item:nth-child(even) .experience-content::before{
+      left:-8px;
+      right:auto;
+      border-left:none;
+      border-right:8px solid var(--line);
+    }
+    .experience-node{
+      left:12px;
+      top:30px;
+      transform:translateX(-50%) scale(.7);
+    }
+    .experience-item.in-view .experience-node{
+      transform:translateX(-50%) scale(1);
+    }
+
+    nav ul{ display:none; }
+    .burger{ display:block; }
+    .logo{ font-size:.85rem; }
+    .about-grid{ grid-template-columns:1fr; text-align:center; }
+    .about-photo-wrap{ max-width:340px; margin:0 auto; }
+    .about-content{ text-align:center; }
+    .about-content h2{ text-align:center; }
+    .about-content p{ margin:0 auto; }
+    .project{ grid-template-columns:1fr; }
+    footer{ grid-template-columns:1fr; text-align:left; }
+    .foot-center, .foot-right{ text-align:left; }
+  }
   /* ---------- intro ---------- */
   .intro{
   font-size:.90rem;
@@ -639,7 +686,8 @@
     <p class="role">Python Full-Stack Developer</p>
     <br>
     <p class="resume-caption"><i>Everything you need to know, in one document</i></p>
-    <a href="resume/Aryanandha_Jayakumar_Resume (1).pdf" target="_blank" rel="noopener" class="btn">Resume</a>
+    <a href="resume/Aryanandha_Jayakumar_Resume (1).pdf" target="_blank" rel="noopener" class="btn">Download Resume</a>
+    <a href="#projects" class="btn">My Works</a>
   </div>
 </section>
 
@@ -696,7 +744,7 @@
         <!-- TODO: replace # with your deployed URL (e.g. Vercel/Render) -->
         <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
         <a href="https://github.com/AryanandhaJayakumar/clicksy-photographers-booking" target="_blank" rel="noopener" class="project-link">
-          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          View Code on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
@@ -724,7 +772,7 @@
         <!-- TODO: replace # with your deployed URL (e.g. Vercel/Netlify) -->
         <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
         <a href="https://github.com/AryanandhaJayakumar/QuizApp" target="_blank" rel="noopener" class="project-link">
-          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+           View Code on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
@@ -752,7 +800,7 @@
         <!-- TODO: replace # with your deployed URL (e.g. Vercel/Netlify) -->
         <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
         <a href="https://github.com/AryanandhaJayakumar/vibra" target="_blank" rel="noopener" class="project-link">
-          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+           View Code on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
@@ -784,7 +832,8 @@
         <!-- TODO: replace # with your deployed URL (e.g. Render/Railway) -->
         <a href="#" target="_blank" rel="noopener" class="btn-outline">Live Demo</a>
         <a href="https://github.com/AryanandhaJayakumar/weather" target="_blank" rel="noopener" class="project-link">
-          View Code <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+           View Code on GitHub
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
@@ -864,6 +913,61 @@
         <span class="pill">Postman</span>
       </div>
     </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="experience-head reveal">
+    <h2 class="serif">EXPERIENCE</h2>
+    <div class="rule"></div>
+    <p>A timeline of the opportunities where I learned, built, and strengthened my development skills.</p>
+  </div>
+
+  <div class="experience-timeline">
+    <div class="experience-progress"></div>
+
+    <article class="experience-item">
+      <div class="experience-content">
+        <span class="experience-date">sept-2026 to present</span>
+        <h3>Python Full-Stack Developer Intern</h3>
+        <div class="experience-company">SMEC Technologies</div>
+        <p>I Started my career as Python Full-stack Intern at SMEC Technologies</p>
+      </div>
+      <span class="experience-node" aria-hidden="true"></span>
+    </article>
+
+
+    <article class="experience-item">
+      <div class="experience-content">
+        <span class="experience-date">2022-2026</span>
+        <h3>B.tech in Computer science and Engineering</h3>
+        <div class="experience-company">A. P. J. Abdul Kalam Technological University, Thiruvananthapuram</div>
+        <p>I completed my B.Tech in Computer science and Engineering from A. P. J. Abdul Kalam Technological University, Thiruvananthapuram with CGPA 7.48</p>
+      </div>
+      <span class="experience-node" aria-hidden="true"></span>
+    </article>
+
+    <article class="experience-item">
+      <div class="experience-content">
+        <span class="experience-date">7-Day Internship</span>
+        <h3>Advanced Programming in Python</h3>
+        <div class="experience-company">MetalLoop Global IT Services</div>
+        <p>Strengthened Python programming skills through practical tasks, problem solving, and hands-on development exercises.</p>
+      </div>
+      <span class="experience-node" aria-hidden="true"></span>
+    </article>
+    
+    <article class="experience-item">
+      <div class="experience-content">
+        <span class="experience-date">5-Day Internship Program</span>
+        <h3>Cyber Security Internship</h3>
+        <div class="experience-company">Jetking Kochi Learning Center</div>
+        <p>Explored practical cybersecurity concepts and gained exposure to security-focused tools, techniques, and industry practices.</p>
+      </div>
+      <span class="experience-node" aria-hidden="true"></span>
+    </article>
+
+  </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
