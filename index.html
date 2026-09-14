@@ -324,6 +324,194 @@
     color:#fff;
   }
 
+   /* ---------- EXPERIENCE ---------- */
+  #experience{ background:var(--paper); overflow:hidden; }
+  .experience-head{
+    max-width:720px; margin:0 auto 72px; text-align:center;
+  }
+  .experience-head h2{
+    font-size:clamp(2.1rem,4vw,3rem);
+    font-weight:500; margin-bottom:18px;
+  }
+  .experience-head .rule{
+    width:56px; height:1px; background:var(--ink);
+    margin:0 auto 22px;
+  }
+  .experience-head p{
+    font-size:1.02rem; line-height:1.8; color:var(--muted);
+  }
+
+  .experience-timeline{
+    position:relative;
+    max-width:1050px;
+    margin:0 auto;
+    padding:12px 0;
+  }
+
+  /* The line stays neutral like the existing palette; the gold-looking glow
+     comes from the animated node, not from changing the page background. */
+  .experience-timeline::before{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    left:50%;
+    width:1px;
+    background:var(--line);
+    transform:translateX(-50%);
+  }
+
+  .experience-progress{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:2px;
+    height:0;
+    background:var(--ink);
+    transform:translateX(-50%);
+    transition:height .12s linear;
+    z-index:1;
+  }
+
+  .experience-item{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:86px;
+    min-height:190px;
+    margin-bottom:34px;
+  }
+  .experience-item:last-child{ margin-bottom:0; }
+
+  .experience-content{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:30px 32px;
+    transition:
+      transform .55s cubic-bezier(.2,.8,.2,1),
+      box-shadow .55s ease,
+      border-color .35s ease;
+  }
+
+  .experience-item:nth-child(odd) .experience-content{
+    grid-column:1;
+    text-align:right;
+    transform:translateX(-35px);
+  }
+  .experience-item:nth-child(even) .experience-content{
+    grid-column:2;
+    text-align:left;
+    transform:translateX(35px);
+  }
+
+  .experience-content::before{
+    content:"";
+    position:absolute;
+    top:28px;
+    width:0; height:0;
+    border-top:7px solid transparent;
+    border-bottom:7px solid transparent;
+  }
+  .experience-item:nth-child(odd) .experience-content::before{
+    right:-8px;
+    border-left:8px solid var(--line);
+  }
+  .experience-item:nth-child(even) .experience-content::before{
+    left:-8px;
+    border-right:8px solid var(--line);
+  }
+
+  .experience-date{
+    display:inline-block;
+    font-size:.7rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+
+  .experience-content h3{
+    font-size:clamp(1.35rem,2.5vw,1.8rem);
+    font-weight:500;
+    margin-bottom:7px;
+  }
+  .experience-company{
+    font-size:.86rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .experience-content p{
+    font-size:.94rem;
+    line-height:1.8;
+    color:#333;
+  }
+
+  .experience-node{
+    position:absolute;
+    left:50%;
+    top:30px;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--ink);
+    transform:translateX(-50%) scale(.7);
+    z-index:3;
+    opacity:0;
+    transition:opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1);
+  }
+  .experience-node::after{
+    content:"";
+    position:absolute;
+    inset:3px;
+    border-radius:50%;
+    background:var(--ink);
+    transform:scale(0);
+    transition:transform .4s ease;
+  }
+
+  .experience-item.in-view .experience-content{
+    transform:translateX(0);
+    box-shadow:0 24px 48px -28px rgba(20,20,20,.28);
+    border-color:var(--ink);
+  }
+  .experience-item.in-view .experience-node{
+    opacity:1;
+    transform:translateX(-50%) scale(1);
+    box-shadow:0 0 0 0 rgba(20,20,20,.12);
+    animation:experiencePulse 2s ease-in-out infinite;
+  }
+  .experience-item.in-view .experience-node::after{
+    transform:scale(1);
+  }
+
+  .experience-works{
+    display:flex;
+    justify-content:center;
+    margin-top:62px;
+  }
+  .experience-works .btn.dark{
+    position:relative;
+    overflow:hidden;
+  }
+  .experience-works .btn.dark::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);
+    background-size:200% 100%;
+    animation:shine 3.2s 1s infinite;
+    pointer-events:none;
+  }
+
+  @keyframes experiencePulse{
+    0%,100%{ box-shadow:0 0 0 0 rgba(20,20,20,.12); }
+    50%{ box-shadow:0 0 0 11px rgba(20,20,20,0); }
+  }
+
     /* ---------- CONTACT ---------- */
 
   #contact{ background:var(--paper); }
