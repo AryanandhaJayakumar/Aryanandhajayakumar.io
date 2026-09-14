@@ -1087,6 +1087,38 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => revealObserver.observe(el));
 
+  // Experience timeline: reveal each entry and draw the center line as the
+  // section moves through the viewport.
+  const experience = document.getElementById('experience');
+  const experienceItems = document.querySelectorAll('.experience-item');
+  const experienceProgress = document.querySelector('.experience-progress');
+
+  const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        experienceObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.22 });
+
+  experienceItems.forEach(item => experienceObserver.observe(item));
+
+  function updateExperienceProgress(){
+    if(!experience || !experienceProgress) return;
+
+    const rect = experience.getBoundingClientRect();
+    const viewport = window.innerHeight;
+    const total = experience.offsetHeight;
+    const passed = Math.min(Math.max(viewport * 0.55 - rect.top, 0), total);
+    const progress = total ? (passed / total) * 100 : 0;
+    experienceProgress.style.height = progress + '%';
+  }
+
+  window.addEventListener('scroll', updateExperienceProgress, { passive:true });
+  window.addEventListener('resize', updateExperienceProgress);
+  updateExperienceProgress();
+
   const text = "Hey there, I'm";
 const el = document.getElementById('typewriter');
 let i = 0;
